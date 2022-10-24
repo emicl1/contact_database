@@ -27,6 +27,7 @@ class Contact_database():
         query = self.c.execute("""SELECT id FROM kontakty WHERE jmeno=? AND prijmeni=?""", (jmeno, prijmeni))
         self.c.execute(f"""CREATE TABLE IF NOT EXISTS seznam_telefonu_{query}(
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        předpona_země TEXT,
                         telefon INTEGER
                         )""")
         if type(telefon) == list:
